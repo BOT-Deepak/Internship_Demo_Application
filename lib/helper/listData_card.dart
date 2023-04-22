@@ -12,25 +12,24 @@ class ListDataCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Expanded(
-      child: Container(
+    return Container(
         margin: const EdgeInsets.all(5.0),
         child: GestureDetector(
           onTap: () {},
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
+            child: Stack(
               children: [
 
                 // Left side of List Icon and Player Name
-                Expanded(
-                  child: Align(
+                Align(
                     alignment: Alignment.centerLeft,
                     child: Column(
                       children: [
                         Align(
-                          alignment: Alignment.centerLeft,
-                            child: Expanded(child: Text(name, style: moverNameStyle,),)),
+                            alignment: Alignment.centerLeft,
+                              child: Text(name, style: moverNameStyle,),
+                        ),
                         Row(
                           children: [
                             Image(image: image, width: 30, height: 30,),
@@ -39,13 +38,11 @@ class ListDataCard extends StatelessWidget {
                           ],
                         ),
                       ],
-                    ),
                   ),
                 ),
 
                 // Right side of List Points and change.
-                Expanded(
-                  child: Align(
+                Align(
                     alignment: Alignment.centerRight,
                     child: Column(
                       children: [
@@ -54,10 +51,8 @@ class ListDataCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
               ],
             ),
-          ),
         ),
       ),
     );

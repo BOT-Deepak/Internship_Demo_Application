@@ -71,7 +71,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
                   // The small carousel of players in top movers
                   Expanded(
-                      flex: 3,
+                    flex: 3,
                       child: Movers(),
                   ),
 
@@ -92,125 +92,118 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   // Change list with the help of buttons
                   Expanded(
                     flex: 6,
-                    child: DefaultTabController(
+                        child: DefaultTabController(
 
-                      // length of button tab : 2 ( Trending & New Players )
-                        length: 2,
-                        child: Column(
-                          children: [
-                            Material(
-                              //
-                              child: Expanded(
-                                child: Container(
-                                  color: Colors.white,
+                            // length of button tab : 2 ( Trending & New Players )
+                              length: 2,
+                              child: Column(
+                                children: [
+                                  Material(
 
-                                  // TabBar with some setting for buttons and layout
-                                  child: TabBar(
-                                    physics: const ClampingScrollPhysics(),
-                                    padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                                    unselectedLabelColor: Colors.black,
-                                    indicatorSize: TabBarIndicatorSize.label,
-                                    labelColor: lightThemeColor,
-                                    indicator: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(30),
-                                      color: lightThemeColor.withOpacity(0.2),
-                                    ),
-                                    tabs: [
+                                    child: Container(
+                                        color: Colors.white,
 
-
-                                      // The box of Trending Button
-                                      Tab(
-                                        child: Container(
-                                          height: 70,
-                                          decoration: BoxDecoration(
+                                        // TabBar with some setting for buttons and layout
+                                        child: TabBar(
+                                          physics: const ClampingScrollPhysics(),
+                                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                          unselectedLabelColor: Colors.black,
+                                          indicatorSize: TabBarIndicatorSize.label,
+                                          labelColor: lightThemeColor,
+                                          indicator: BoxDecoration(
                                             borderRadius: BorderRadius.circular(30),
-                                            color: Colors.grey.withOpacity(0.3),
+                                            color: lightThemeColor.withOpacity(0.2),
                                           ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Text("Trending"),
-                                          ),
+                                          tabs: [
+
+
+                                            // The box of Trending Button
+                                            Tab(
+                                              child: Container(
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(30),
+                                                  color: Colors.grey.withOpacity(0.3),
+                                                ),
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Text("Trending"),
+                                                ),
+                                              ),
+                                            ),
+
+                                            // The box of New Players Button
+                                            Tab(
+                                              child: Container(
+                                                height: 70,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(30),
+                                                  color: Colors.grey.withOpacity(0.3),
+                                                ),
+                                                child: Align(
+                                                  alignment: Alignment.center,
+                                                  child: Text("New Players"),
+                                                ),
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                    ),
+                                  ),
+
+                                  // This is the portion of listing down the players down there
+                                  Expanded(
+                                    child: Container(
+                                        child: TabBarView(
+                                          children: [
+                                            ListView.separated(
+                                                itemBuilder: (context, index) {
+                                                  return ListDataCard(
+                                                    name: givenValues[index][0],
+                                                    image: iconToProcess(index),
+                                                    team: givenValues[index][2],
+                                                    points: givenValues[index][3],
+                                                    change: givenValues[index][4],
+                                                  );
+                                                },
+                                                separatorBuilder: (context, index) {
+                                                  return const Divider(
+                                                      thickness: 0.2,
+                                                      indent: 20,
+                                                      endIndent: 20,
+                                                      color: Colors.black,
+                                                    );
+                                                },
+                                                itemCount: 6
+                                            ),
+                                            ListView.separated(
+                                                itemBuilder: (context, index) {
+                                                  return ListDataCard(
+                                                    name: 'Name',
+                                                    image: iconToProcess(4),
+                                                    team: 'Team',
+                                                    points: 'Points',
+                                                    change: 'Change',
+                                                  );
+                                                },
+                                                separatorBuilder: (context, index) {
+                                                  return const Divider(
+                                                      thickness: 0.2,
+                                                      indent: 20,
+                                                      endIndent: 20,
+                                                      color: Colors.black,
+                                                  );
+                                                },
+                                                itemCount: 6
+                                            ),
+                                          ],
                                         ),
                                       ),
-
-                                      // The box of New Players Button
-                                      Tab(
-                                        child: Container(
-                                          height: 70,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(30),
-                                            color: Colors.grey.withOpacity(0.3),
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Text("New Players"),
-                                          ),
-                                        ),
-                                      )
-                                    ],
                                   ),
-                                ),
-                              ),
-                            ),
-
-                            // This is the portion of listing down the players down there
-                            Expanded(
-                              flex: 5,
-                              child: Container(
-                                child: TabBarView(
-                                  children: [
-                                    ListView.separated(
-                                        itemBuilder: (context, index) {
-                                          return ListDataCard(
-                                            name: givenValues[index][0],
-                                            image: iconToProcess(index),
-                                            team: givenValues[index][2],
-                                            points: givenValues[index][3],
-                                            change: givenValues[index][4],
-                                          );
-                                        },
-                                        separatorBuilder: (context, index) {
-                                          return Expanded(
-                                            child: const Divider(
-                                              thickness: 0.2,
-                                              indent: 20,
-                                              endIndent: 20,
-                                              color: Colors.black,
-                                            ),
-                                          );
-                                        },
-                                        itemCount: 6
-                                    ),
-                                    ListView.separated(
-                                        itemBuilder: (context, index) {
-                                          return ListDataCard(
-                                            name: 'Name',
-                                            image: iconToProcess(4),
-                                            team: 'Team',
-                                            points: 'Points',
-                                            change: 'Change',
-                                          );
-                                        },
-                                        separatorBuilder: (context, index) {
-                                          return Expanded(
-                                            child: const Divider(
-                                              thickness: 0.2,
-                                              indent: 20,
-                                              endIndent: 20,
-                                              color: Colors.black,
-                                            ),
-                                          );
-                                        },
-                                        itemCount: 6
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
+                                ],
+                              )
+                        ),
                     ),
-                  ),
                           ],
                           ),
         ),

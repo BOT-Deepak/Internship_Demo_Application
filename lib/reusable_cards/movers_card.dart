@@ -12,8 +12,7 @@ class MoverCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Expanded(
-      child: Container(
+    return Container(
         
         // Making the box designs
           margin: const EdgeInsets.all(5.0),
@@ -64,7 +63,6 @@ class MoverCard extends StatelessWidget {
                 ],
               ),
             ),
-        ),
       ),
     );
   }

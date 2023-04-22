@@ -25,28 +25,29 @@ class Movers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // Horizontal Carousel for the Mid Slider.
-    return Container(
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.all(6.0),
-              itemBuilder: (context, index) {
+    // return Text('Hell');
 
-              // returns the Card with all the data in correct position
-                return MoverCard(
-                  name: givenValues[index][0],
-                  image: iconToProcess(index),
-                  team: givenValues[index][2],
-                  points: givenValues[index][3],
-                  change: givenValues[index][4],
-                );
-              },
-              separatorBuilder: (context, index) {
-                return const SizedBox(width: 12,);
-              },
-              itemCount: 6,
-          ),
-      );
+    // Horizontal Carousel for the Mid Slider.
+    return ListView.separated(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.all(6.0),
+            itemBuilder: (context, index) {
+
+            // returns the Card with all the data in correct position
+              return MoverCard(
+                name: givenValues[index][0],
+                image: iconToProcess(index),
+                team: givenValues[index][2],
+                points: givenValues[index][3],
+                change: givenValues[index][4],
+              );
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(width: 12,);
+            },
+            itemCount: 6,
+    );
   }
 
   AssetImage iconToProcess(index) {
