@@ -4,7 +4,7 @@ import 'package:aftgnpg/constants.dart';
 class MoverCard extends StatelessWidget {
 
   // required parameters to be passed to be used in this card
-  const MoverCard( { required this.name, required this.image, required this.team, required this.points, required this.change } );
+  const MoverCard( {super.key,  required this.name, required this.image, required this.team, required this.points, required this.change } );
 
   final String name, team, points, change;
   final AssetImage image;
@@ -46,7 +46,7 @@ class MoverCard extends StatelessWidget {
                     child: Row(
                         children: [
                           Image(image: image, width: 30, height: 30,),
-                          Text('  |  '+team, style: moverTeamStyle,),
+                          Text('  |  $team', style: moverTeamStyle,),
                         ],
                       ),
                   ),
@@ -56,7 +56,7 @@ class MoverCard extends StatelessWidget {
                     child: Row(
                       children: [
                         Text(points, style: moverPointsStyle,),
-                        Text('  ('+change+')', style: moverChangeStyle,),
+                        Text('  ($change)', style: moverChangeStyle,),
                       ],
                     ),
                   ),

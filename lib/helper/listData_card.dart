@@ -4,7 +4,7 @@ import 'package:aftgnpg/constants.dart';
 class ListDataCard extends StatelessWidget {
 
   // List of parameters in this class function
-  const ListDataCard( { required this.name, required this.image, required this.team, required this.points, required this.change } );
+  const ListDataCard( {super.key,  required this.name, required this.image, required this.team, required this.points, required this.change } );
 
   final String name, team, points, change;
   final AssetImage image;
@@ -33,7 +33,7 @@ class ListDataCard extends StatelessWidget {
                         Row(
                           children: [
                             Image(image: image, width: 30, height: 30,),
-                            SizedBox(width: 12.0,),
+                            const SizedBox(width: 12.0,),
                             Text(team, style: moverTeamStyle,),
                           ],
                         ),

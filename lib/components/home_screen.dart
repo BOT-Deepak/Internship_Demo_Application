@@ -6,6 +6,8 @@ import '../helper/movers_slider.dart';
 import '../helper/my_app_bar.dart';
 
 class MyHomeScreen extends StatefulWidget {
+  const MyHomeScreen({super.key});
+
   @override
   State<MyHomeScreen> createState() => _MyHomeScreenState();
 }
@@ -40,14 +42,14 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
 
                   // Top App Bar
-                  MyAppBar(),
+                  const MyAppBar(),
 
                   // The First Big Carousel
                   Expanded(
@@ -56,10 +58,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   ),
 
                   // The Top Moves Text in between
-                  Expanded(
+                  const Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                      child: const Text(
+                      padding: EdgeInsets.only(left: 8.0, top: 8.0),
+                      child: Text(
                         'Top Movers',
                         style: TextStyle(
                           fontSize: 19,
@@ -76,10 +78,10 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                   ),
 
                   // The All Lists Text in between
-                  Expanded(
+                  const Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 8.0),
-                      child: const Text(
+                      padding: EdgeInsets.only(left: 8.0, top: 8.0),
+                      child: Text(
                         'All Lists',
                         style: TextStyle(
                           fontSize: 19,
@@ -106,7 +108,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                         // TabBar with some setting for buttons and layout
                                         child: TabBar(
                                           physics: const ClampingScrollPhysics(),
-                                          padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                                           unselectedLabelColor: Colors.black,
                                           indicatorSize: TabBarIndicatorSize.label,
                                           labelColor: lightThemeColor,
@@ -125,7 +127,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                                   borderRadius: BorderRadius.circular(30),
                                                   color: Colors.grey.withOpacity(0.3),
                                                 ),
-                                                child: Align(
+                                                child: const Align(
                                                   alignment: Alignment.center,
                                                   child: Text("Trending"),
                                                 ),
@@ -140,7 +142,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                                                   borderRadius: BorderRadius.circular(30),
                                                   color: Colors.grey.withOpacity(0.3),
                                                 ),
-                                                child: Align(
+                                                child: const Align(
                                                   alignment: Alignment.center,
                                                   child: Text("New Players"),
                                                 ),
@@ -153,52 +155,50 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
 
                                   // This is the portion of listing down the players down there
                                   Expanded(
-                                    child: Container(
-                                        child: TabBarView(
-                                          children: [
-                                            ListView.separated(
-                                                itemBuilder: (context, index) {
-                                                  return ListDataCard(
-                                                    name: givenValues[index][0],
-                                                    image: iconToProcess(index),
-                                                    team: givenValues[index][2],
-                                                    points: givenValues[index][3],
-                                                    change: givenValues[index][4],
-                                                  );
-                                                },
-                                                separatorBuilder: (context, index) {
-                                                  return const Divider(
-                                                      thickness: 0.2,
-                                                      indent: 20,
-                                                      endIndent: 20,
-                                                      color: Colors.black,
-                                                    );
-                                                },
-                                                itemCount: 6
-                                            ),
-                                            ListView.separated(
-                                                itemBuilder: (context, index) {
-                                                  return ListDataCard(
-                                                    name: 'Name',
-                                                    image: iconToProcess(4),
-                                                    team: 'Team',
-                                                    points: 'Points',
-                                                    change: 'Change',
-                                                  );
-                                                },
-                                                separatorBuilder: (context, index) {
-                                                  return const Divider(
-                                                      thickness: 0.2,
-                                                      indent: 20,
-                                                      endIndent: 20,
-                                                      color: Colors.black,
-                                                  );
-                                                },
-                                                itemCount: 6
-                                            ),
-                                          ],
+                                    child: TabBarView(
+                                      children: [
+                                        ListView.separated(
+                                            itemBuilder: (context, index) {
+                                              return ListDataCard(
+                                                name: givenValues[index][0],
+                                                image: iconToProcess(index),
+                                                team: givenValues[index][2],
+                                                points: givenValues[index][3],
+                                                change: givenValues[index][4],
+                                              );
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return const Divider(
+                                                  thickness: 0.2,
+                                                  indent: 20,
+                                                  endIndent: 20,
+                                                  color: Colors.black,
+                                                );
+                                            },
+                                            itemCount: 6
                                         ),
-                                      ),
+                                        ListView.separated(
+                                            itemBuilder: (context, index) {
+                                              return ListDataCard(
+                                                name: 'Name',
+                                                image: iconToProcess(4),
+                                                team: 'Team',
+                                                points: 'Points',
+                                                change: 'Change',
+                                              );
+                                            },
+                                            separatorBuilder: (context, index) {
+                                              return const Divider(
+                                                  thickness: 0.2,
+                                                  indent: 20,
+                                                  endIndent: 20,
+                                                  color: Colors.black,
+                                              );
+                                            },
+                                            itemCount: 6
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               )
@@ -211,7 +211,7 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
     );
   }
 
-  // Returns the image accpording to the index of tbe players information in the list
+  // Returns the image according to the index of tbe players information in the list
   AssetImage iconToProcess(index) {
     return AssetImage(givenTypes[int.parse(givenValues[index][1])]);
   }

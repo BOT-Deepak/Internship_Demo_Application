@@ -25,8 +25,6 @@ class Movers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    // return Text('Hell');
-
     // Horizontal Carousel for the Mid Slider.
     return ListView.separated(
           shrinkWrap: true,

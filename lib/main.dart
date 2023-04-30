@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ).copyWith(primaryColor: darkThemeColor),
 
       // Calling mainController() so it can switch between bottom navigation tabs
-      home: MainController(),
+      home: const MainController(),
     );
   }
 }

@@ -14,7 +14,7 @@ class Carousel extends StatelessWidget {
 
     // The slider for the Big Carousel
     return Container(
-      constraints: BoxConstraints(
+      constraints: const BoxConstraints(
         minHeight: 200,
       ),
       child: Column(
@@ -25,7 +25,7 @@ class Carousel extends StatelessWidget {
            Expanded(
             child: PageView(
               controller: _controller,
-              children: [
+              children: const [
 
                 // Data for the First Card
                 SliderCard(

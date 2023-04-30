@@ -8,6 +8,8 @@ import 'components/home_screen.dart';
 import 'constants.dart';
 
 class MainController extends StatefulWidget {
+  const MainController({super.key});
+
   @override
   _MainControllerState createState() => _MainControllerState();
 }
@@ -16,7 +18,7 @@ class _MainControllerState extends State<MainController> {
 
   // _selectedIndex tells about the index of the page, selected to view using pageController.
   int _selectedIndex = 0;
-  PageController _pageController = new PageController(initialPage: 0);
+  final PageController _pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -68,13 +70,13 @@ class _MainControllerState extends State<MainController> {
               gap: 8,
               activeColor: lightThemeColor,
               iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
 
               // time to switch
-              duration: Duration(milliseconds: 400),
+              duration: const Duration(milliseconds: 400),
               tabBackgroundColor: lightThemeColor.withOpacity(.2),
               color: darkThemeColor,
-              tabs: [
+              tabs: const [
 
                 // Font-Awesome Icons and Text on every option on Nav-bar
                 GButton(
@@ -99,7 +101,7 @@ class _MainControllerState extends State<MainController> {
 
               // If any tab changes, calls this function to animate the chnage of page.
               onTabChange: (index) {
-  _pageController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.ease);
+  _pageController.animateToPage(index, duration: const Duration(milliseconds: 500), curve: Curves.ease);
               },
             ),
           ),

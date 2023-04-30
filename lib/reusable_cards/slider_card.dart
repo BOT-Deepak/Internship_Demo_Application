@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:aftgnpg/constants.dart';
 
 class SliderCard extends StatelessWidget {
-  const SliderCard( { required this.heading, required this.firstLine, required this.secondLine, required this.thirdLine } );
+  const SliderCard( {super.key,  required this.heading, required this.firstLine, required this.secondLine, required this.thirdLine } );
 
   final String heading, firstLine, secondLine, thirdLine;
 
@@ -38,19 +38,19 @@ class SliderCard extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Image(image: AssetImage('assets/images/coin.png'), width: 30, height: 30,),
+                              const Image(image: AssetImage('assets/images/coin.png'), width: 30, height: 30,),
                               Text(firstLine, style: carouselLowerStyle,),
                             ],
                           ),
                           Row(
                             children: [
-                              Image(image: AssetImage('assets/images/coin.png'), width: 30, height: 30,),
+                              const Image(image: AssetImage('assets/images/coin.png'), width: 30, height: 30,),
                               Text(secondLine, style: carouselLowerStyle,),
                             ],
                           ),
                           Row(
                             children: [
-                              Image(image: AssetImage('assets/images/coin.png'), width: 30, height: 30,),
+                              const Image(image: AssetImage('assets/images/coin.png'), width: 30, height: 30,),
                               Text(thirdLine, style: carouselLowerStyle,),
                             ],
                           ),
@@ -60,8 +60,8 @@ class SliderCard extends StatelessWidget {
                 ],
         ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0.0,0.0,8.0,8.0),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(0.0,0.0,8.0,8.0),
               child: Align(
                   alignment: Alignment.bottomRight,
                   child: Image(
